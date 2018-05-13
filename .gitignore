@@ -1,0 +1,19 @@
+#Ignore program files.
+.classpath
+.DS_Store
+.project
+*.class
+*.pyc
+*.o
+*.hi
+*.cmi
+*.cmx
+dist/
+a.out
+target
+Webcomics
+#Ignore test coverage files.
+*.coverage
+htmlcov/
+#Ignore homework dirs.
+JNW2v1.2.3
