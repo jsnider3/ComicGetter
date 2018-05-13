@@ -14,7 +14,7 @@ Currently it supports the following:
 * XKCD
 * Saturday Morning Breakfast Cereal
 
-Adding new webcomics can be done by implementing the interface specified interface
+Adding new webcomics can be done by implementing the interface specified in
 com.joshuasnider.comicgetter.ComicGetter.
 
 ## To Run
