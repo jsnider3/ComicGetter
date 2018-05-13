@@ -24,7 +24,7 @@ import java.util.Iterator;
 public abstract class ComicGetter implements Iterable<String> {
 
   /**
-   * Downloads every webcomic in this directory.
+   * Downloads every webcomic defined for this interface.
    */
   public static void main(String[] args) {
     String pkg_name = "com.joshuasnider.comicgetter";
@@ -93,48 +93,24 @@ public abstract class ComicGetter implements Iterable<String> {
   public abstract String getName();
 
   /**
-   * Get the day immediately after the given day.
-   */
-  public static final String getNextDay(String input, String fmt) {
-    String result = input;
-    try {
-      SimpleDateFormat dateFormat = new SimpleDateFormat(fmt);
-      Calendar cal = Calendar.getInstance();
-      cal.setTime(dateFormat.parse(input));
-      cal.add(Calendar.DATE, 1);
-      result = dateFormat.format(cal.getTime());
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
-    return result;
-  }
-
-  /**
    * Get the location from which to download the image corresponding to the given webcomic index.
    */
   public abstract String getSrc(String index);
 
   /**
-   * Get today as a formatted string.
-   */
-  public static final String getToday(String fmt) {
-    SimpleDateFormat dateFormat = new SimpleDateFormat(fmt);
-    Calendar cal = Calendar.getInstance();
-    return dateFormat.format(cal.getTime());
-  }
-
-  /**
    * Get an image from the URL at fileLoc and save it as title.
+   * @return: The size of the saved image.
    */
-  public static void saveImage(String fileLoc, String title){
-    try {
-      ReadableByteChannel in1 = Channels.newChannel(
-        new URL(fileLoc).openStream());
-      FileOutputStream out = new FileOutputStream(title);
-      out.getChannel().transferFrom(in1, 0, 1 << 24);
-      out.close();
+  public static long saveImage(String fileLoc, String title){
+    long saved = 0;
+    try (ReadableByteChannel in1 = Channels.newChannel(
+          new URL(fileLoc).openStream());
+        FileOutputStream out = new FileOutputStream(title))
+    {
+      saved = out.getChannel().transferFrom(in1, 0, Long.MAX_VALUE);
     } catch (IOException e) {
       e.printStackTrace();
     }
+    return saved;
   }
 }
