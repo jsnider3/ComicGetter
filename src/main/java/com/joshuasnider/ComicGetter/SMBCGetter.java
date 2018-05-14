@@ -65,7 +65,6 @@ public class SMBCGetter extends ComicGetter {
       src = src.replace(" ", "%20");
       System.out.println(src);
       //TODO Add mouseover text.
-      //TODO Need to URLEncode src.
     } catch (Exception ex) {ex.printStackTrace();}
     return src;
   }
