@@ -37,16 +37,9 @@ public class SMBCGetter extends ComicGetter {
       Document doc = Jsoup.connect("https://smbc-comics.com/comic/archive").get();
       for (Element e : doc.select("option"))
       {
-        archive.add(e.attr("value"));
-        System.out.println(e.attr("value"));/*
-		  
-        String date = e.getElementsByClass("comic-archive-date").get(0).html();
-        try {
-          Date d = new SimpleDateFormat("MMM dd, yyyy").parse(date);
-          date = new SimpleDateFormat("yyyyMMdd").format(d);
-          String link = e.select("a").get(0).attr("href");
-          archive.put(date, link);
-        } catch (ParseException ex) {ex.printStackTrace();}*/
+        String value = e.attr("value");
+        archive.add(value);
+        System.out.println(value);
       }
 		} catch (IOException ex) {ex.printStackTrace();}
   }
@@ -69,6 +62,7 @@ public class SMBCGetter extends ComicGetter {
       Document doc = Jsoup.connect(page).get();
       Element comic_body = doc.select("div#cc-comicbody").get(0);
       src = "https://www.smbc-comics.com" + comic_body.select("img").get(0).attr("src");
+      src = src.replace(" ", "%20");
       System.out.println(src);
       //TODO Add mouseover text.
       //TODO Need to URLEncode src.
