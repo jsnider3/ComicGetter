@@ -64,6 +64,7 @@ public class PHDGetter extends ComicGetter {
    * Get the image URL for the given comic.
    */
   public String getSrc(String index) {
+    //TODO Doesn't work for videos.
     String src = null;
     try {
       String page = "http://www.phdcomics.com/comics/archive.php?comicid=" + Integer.toString(archive.indexOf(index) + 1);
