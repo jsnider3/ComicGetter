@@ -6,19 +6,32 @@ when I was disconnected from the internet.
 ## Supported Webcomics
 
 Currently it supports the following:
-* The Last Days of Foxhound
-* Girl Genius
-* Order of the Stick
-* The Punchline is Machismo
-* Schlock Mercenary
-* XKCD
-* Saturday Morning Breakfast Cereal
 * Captain SNES
 * El Goonish Shive
+* Girl Genius
+* Order of the Stick
+* Saturday Morning Breakfast Cereal
+* Schlock Mercenary
+* The Last Days of Foxhound
+* The Punchline is Machismo
+* XKCD
 
 Adding new webcomics can be done by implementing the interface specified in
 com.joshuasnider.comicgetter.ComicGetter.
 
 ## To Run
 mvn compile
-mvn exec:java
+mvn exec:java -Dexec.mainClass="com.joshuasnider.comicgetter.ComicGetter"
+
+## Proposed Features
+Features I'm thinking of adding, but haven't yet.
+* Automatically detect file ending.
+* GUI that lets you select which webcomics to download.
+
+## Proposed Webcomics
+I'm thinking of adding support for the following webcomics:
+* Erfworld
+* Grrl Power
+* Penny Arcade
+* Sandra and Woo
+* VG Cats
