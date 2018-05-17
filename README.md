@@ -14,6 +14,7 @@ Currently it supports the following:
 * XKCD
 * Saturday Morning Breakfast Cereal
 * Captain SNES
+* El Goonish Shive
 
 Adding new webcomics can be done by implementing the interface specified in
 com.joshuasnider.comicgetter.ComicGetter.
