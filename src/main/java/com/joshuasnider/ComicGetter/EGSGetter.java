@@ -23,7 +23,7 @@ public class EGSGetter extends ComicGetter {
     new EGSGetter().getAll();
   }
 
-  private final int newest;
+  private int newest;
 
   public EGSGetter() {
     newest = 2499;
