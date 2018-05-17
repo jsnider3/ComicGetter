@@ -27,10 +27,14 @@ public class EGSGetter extends ComicGetter {
 
   public EGSGetter() {
     newest = 2499;
+    try {
+      newest = getNewestComic();
+    } catch (IOException e) {e.printStackTrace();}
   }
 
   public String getDest(String index) {
-    return getDir() + index + ".gif";
+    int numsize = Integer.toString(newest).length();
+    return getDir() + String.format("%0" + Integer.toString(numsize) + "d", Integer.parseInt(index)) + ".gif";
   }
 
   public String getName() {
