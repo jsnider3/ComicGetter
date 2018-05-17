@@ -57,17 +57,6 @@ public class XKCDImageGetter extends ComicGetter {
     return comicnumber;
   }
 
-  public String[] getToFrom(String index) {
-    String[] tofrom = null;
-    String html = getSrc(index);
-    if (html != null) {
-      tofrom = new String[2];
-      tofrom[0] = getSrc(index);
-      tofrom[1] = getDest(index);
-    }
-    return tofrom;
-  }
-
   /**
    * Get the image URL for the given comic number.
    */
