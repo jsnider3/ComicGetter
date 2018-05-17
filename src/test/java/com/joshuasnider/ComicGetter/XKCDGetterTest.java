@@ -1,5 +1,5 @@
 /**
- * Test class for XKCDImageGetter.java.
+ * Test class for XKCDGetter.java.
  *
  * @Author: Josh Snider
  */
@@ -17,13 +17,13 @@ public class XKCDGetterTest {
 
   @Test
   public void testFirst() {
-    XKCDImageGetter xkcd = new XKCDImageGetter();
+    XKCDGetter xkcd = new XKCDGetter();
     assertEquals("1", xkcd.iterator().next());
   }
 
   @Test
   public void testNext() {
-    XKCDImageGetter xkcd = new XKCDImageGetter();
+    XKCDGetter xkcd = new XKCDGetter();
     List<String> contents = new ArrayList<>();
     xkcd.iterator().forEachRemaining(contents::add);
     assertTrue(contents.contains("1"));
@@ -34,7 +34,7 @@ public class XKCDGetterTest {
 
   @Test
   public void testSize() {
-    ComicGetter comic = new XKCDImageGetter();
+    ComicGetter comic = new XKCDGetter();
     List<String> contents = new ArrayList<>();
     comic.iterator().forEachRemaining(contents::add);
     assertTrue(contents.size() >= 1988);
@@ -42,7 +42,7 @@ public class XKCDGetterTest {
 
   @Test
   public void testConnection() {
-    ComicGetter comic = new XKCDImageGetter();
+    ComicGetter comic = new XKCDGetter();
     try {
       new URL(comic.getSrc("1")).openStream();
     } catch(Exception e) {

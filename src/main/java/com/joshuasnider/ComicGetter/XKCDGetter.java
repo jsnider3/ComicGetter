@@ -15,15 +15,15 @@ import java.net.URLConnection;
 import java.util.Iterator;
 import org.jsoup.Jsoup;
 
-public class XKCDImageGetter extends ComicGetter {
+public class XKCDGetter extends ComicGetter {
 
   public static void main(String[] args) {
-    new XKCDImageGetter().getAll();
+    new XKCDGetter().getAll();
   }
 
   private final int newest;
 
-  public XKCDImageGetter() {
+  public XKCDGetter() {
     int recent = -1;
     try {
       recent = getNewestComic();

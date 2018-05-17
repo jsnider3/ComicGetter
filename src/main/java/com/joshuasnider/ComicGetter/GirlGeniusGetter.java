@@ -16,13 +16,13 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class GirlGeniusImageGetter extends ComicGetter {
+public class GirlGeniusGetter extends ComicGetter {
 
   public static String home = "http://www.girlgeniusonline.com";
   public static String title = home + "/ggmain/strips/ggmain";
 
   public static void main(String[] args) {
-    new GirlGeniusImageGetter().getAll();
+    new GirlGeniusGetter().getAll();
   }
 
   public String getDest(String index) {

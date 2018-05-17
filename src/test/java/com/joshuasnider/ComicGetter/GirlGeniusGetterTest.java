@@ -1,5 +1,5 @@
 /**
- * Test class for GirlGeniusImageGetter.java.
+ * Test class for GirlGeniusGetter.java.
  *
  * @Author: Josh Snider
  */
@@ -17,13 +17,13 @@ public class GirlGeniusGetterTest {
 
   @Test
   public void testFirst() {
-    GirlGeniusImageGetter genius = new GirlGeniusImageGetter();
+    GirlGeniusGetter genius = new GirlGeniusGetter();
     assertEquals("20021104", genius.iterator().next());
   }
 
   @Test
   public void testNext() {
-    GirlGeniusImageGetter genius = new GirlGeniusImageGetter();
+    GirlGeniusGetter genius = new GirlGeniusGetter();
     List<String> contents = new ArrayList<>();
     genius.iterator().forEachRemaining(contents::add);
     assertTrue(contents.contains("20021106"));
@@ -36,7 +36,7 @@ public class GirlGeniusGetterTest {
 
   @Test
   public void testSize() {
-    ComicGetter comic = new GirlGeniusImageGetter();
+    ComicGetter comic = new GirlGeniusGetter();
     List<String> contents = new ArrayList<>();
     comic.iterator().forEachRemaining(contents::add);
     assertTrue(contents.size() >= 3 * 52 * 15);
@@ -44,7 +44,7 @@ public class GirlGeniusGetterTest {
 
   @Test
   public void testConnection() {
-    ComicGetter comic = new GirlGeniusImageGetter();
+    ComicGetter comic = new GirlGeniusGetter();
     try {
       new URL(comic.getSrc("20021106")).openStream();
     } catch(Exception e) {
