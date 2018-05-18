@@ -10,6 +10,7 @@ Currently it supports the following:
 * El Goonish Shive
 * Girl Genius
 * Order of the Stick
+* Sandra and Woo
 * Saturday Morning Breakfast Cereal
 * Schlock Mercenary
 * The Last Days of Foxhound
@@ -31,7 +32,7 @@ Features I'm thinking of adding, but haven't yet.
 ## Proposed Webcomics
 I'm thinking of adding support for the following webcomics:
 * Erfworld
+* Existential Comics
 * Grrl Power
 * Penny Arcade
-* Sandra and Woo
 * VG Cats
