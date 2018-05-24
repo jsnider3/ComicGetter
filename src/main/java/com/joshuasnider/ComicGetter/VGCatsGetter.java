@@ -44,14 +44,12 @@ public class VGCatsGetter extends ComicGetter {
         {
           link = link.substring(link.indexOf("strip_id") + 9);
           archive.add(link);
-          System.out.println(link);
         }
       }
 		} catch (IOException ex) {ex.printStackTrace();}
   }
 
   public String getDest(String index) {
-    System.out.println("getDest(" + index + ")");
     return getDir() + String.format("%03d", Integer.parseInt(index)) + ".png";
   }
 
