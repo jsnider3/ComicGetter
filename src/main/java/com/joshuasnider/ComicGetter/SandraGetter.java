@@ -1,5 +1,6 @@
 /**
- * PHD Comics is a webcomic about life as a PhD student.
+ * Sandra and Woo is a slice-of-life webcomic about a girl with
+ *  with a pet raccoon.
  *
  * @author: Josh Snider
  */
