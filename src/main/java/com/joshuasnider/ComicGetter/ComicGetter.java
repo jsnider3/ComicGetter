@@ -66,10 +66,10 @@ public abstract class ComicGetter implements Iterable<String> {
       System.out.println(index);
       try {
         String dest = getDest(index);
-        if (dest != null && !(new File(dest).exists())) {
+        if (dest != null && !(new File(getDir() + dest).exists())) {
           String src = getSrc(index);
           if (src != null) {
-            saveImage(src, dest);
+            saveImage(src, getDir() + dest);
           }
         }
       } catch (Exception ex) {ex.printStackTrace();}

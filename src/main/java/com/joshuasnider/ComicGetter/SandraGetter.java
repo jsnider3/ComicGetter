@@ -49,7 +49,7 @@ public class SandraGetter extends ComicGetter {
 
   public String getDest(String index) {
     index = index.substring(index.indexOf("com/") + 4);
-    return getDir() + index.replaceAll("/$", "").replace("/", "_") + ".png";
+    return index.replaceAll("/$", "").replace("/", "_") + ".png";
   }
 
   public String getName() {

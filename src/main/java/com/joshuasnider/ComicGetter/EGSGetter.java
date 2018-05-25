@@ -34,7 +34,7 @@ public class EGSGetter extends ComicGetter {
 
   public String getDest(String index) {
     int numsize = Integer.toString(newest).length();
-    return getDir() + String.format("%0" + Integer.toString(numsize) + "d", Integer.parseInt(index)) + ".gif";
+    return String.format("%0" + Integer.toString(numsize) + "d", Integer.parseInt(index)) + ".gif";
   }
 
   public String getName() {
@@ -58,11 +58,13 @@ public class EGSGetter extends ComicGetter {
     String fileLoc = null;
     try {
       Document doc = Jsoup.connect("http://www.egscomics.com/index.php?id=" + index).get();
-      for (Element e : doc.select("img#comic")) {
+      for (Element e : doc.select("img#cc-comic")) {
         if (e.hasAttr("src"))
-          fileLoc = "http://www.egscomics.com/" + e.attr("src");
+          fileLoc = e.attr("src");
       }
-    } catch (IOException e) {}
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     return fileLoc;
   }
 

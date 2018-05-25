@@ -34,7 +34,7 @@ public class XKCDGetter extends ComicGetter {
   public String getDest(String index) {
     String src = getSrc(index);
     if (src != null){
-      return String.format("%s%04d_%s", getDir(), Integer.parseInt(index), src.substring(29));
+      return String.format("%04d_%s", Integer.parseInt(index), src.substring(29));
     }
     else {
       return null;

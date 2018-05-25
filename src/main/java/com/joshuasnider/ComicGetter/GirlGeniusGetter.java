@@ -26,7 +26,7 @@ public class GirlGeniusGetter extends ComicGetter {
   }
 
   public String getDest(String index) {
-    return getDir() + index + ".jpg";
+    return index + ".jpg";
   }
 
   /**

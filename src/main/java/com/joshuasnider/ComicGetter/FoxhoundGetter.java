@@ -17,7 +17,7 @@ public class FoxhoundGetter extends ComicGetter {
   }
 
   public String getDest(String index) {
-    return getDir() + getImageName(index);
+    return getImageName(index);
   }
 
   public String getName() {
