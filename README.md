@@ -10,12 +10,14 @@ Currently it supports the following:
 * El Goonish Shive
 * Girl Genius
 * Order of the Stick
+* Piled Higher and Deeper
 * Sandra and Woo
 * Saturday Morning Breakfast Cereal
 * Schlock Mercenary
 * The Last Days of Foxhound
 * The Punchline is Machismo
 * XKCD
+* VG Cats
 
 Adding new webcomics can be done by implementing the interface specified in
 com.joshuasnider.comicgetter.ComicGetter.
@@ -31,8 +33,8 @@ Features I'm thinking of adding, but haven't yet.
 
 ## Proposed Webcomics
 I'm thinking of adding support for the following webcomics:
+* Dilbert
 * Erfworld
 * Existential Comics
 * Grrl Power
 * Penny Arcade
-* VG Cats
