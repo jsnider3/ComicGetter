@@ -57,7 +57,7 @@ public class PHDGetter extends ComicGetter {
   }
 
   public String getName() {
-    return "PHD";
+    return "PhD";
   }
 
   /**
