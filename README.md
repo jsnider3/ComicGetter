@@ -28,6 +28,7 @@ mvn exec:java -Dexec.mainClass="com.joshuasnider.comicgetter.ComicGetter"
 
 ## Proposed Features
 Features I'm thinking of adding, but haven't yet.
+* Add title text to images.
 * Automatically detect file ending.
 * GUI that lets you select which webcomics to download.
 
