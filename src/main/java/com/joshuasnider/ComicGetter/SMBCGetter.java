@@ -39,7 +39,6 @@ public class SMBCGetter extends ComicGetter {
       {
         String value = e.attr("value");
         archive.add(value);
-        System.out.println(value);
       }
 		} catch (IOException ex) {ex.printStackTrace();}
   }
@@ -63,7 +62,6 @@ public class SMBCGetter extends ComicGetter {
       Element comic_body = doc.select("div#cc-comicbody").get(0);
       src = "https://www.smbc-comics.com" + comic_body.select("img").get(0).attr("src");
       src = src.replace(" ", "%20");
-      System.out.println(src);
       //TODO Add mouseover text.
     } catch (Exception ex) {ex.printStackTrace();}
     return src;

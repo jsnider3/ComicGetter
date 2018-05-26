@@ -42,12 +42,12 @@ public class EGSGetter extends ComicGetter {
   }
 
   /**
-   * Get the index of the newest xkcd comic.
+   * Get the index of the newest el goonish shive comic.
    */
   public int getNewestComic() throws IOException {
-    String html = Jsoup.connect("http://www.egscomics.com/").get().html();
-    //TODO
     int comicnumber = 2499;
+    String html = Jsoup.connect("http://www.egscomics.com/").get().html();
+    //TODO System.out.println(html);
     return comicnumber;
   }
 

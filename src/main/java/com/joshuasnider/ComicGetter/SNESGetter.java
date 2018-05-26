@@ -67,7 +67,6 @@ public class SNESGetter extends ComicGetter {
       Document doc = Jsoup.connect(page).get();
       Element comic_body = doc.select("div#comic").get(0);
       src = comic_body.select("img").get(1).attr("src");
-      System.out.println(src);
     } catch (Exception ex) {ex.printStackTrace();}
     return src;
   }
