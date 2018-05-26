@@ -29,13 +29,6 @@ public class SchlockGetter extends ComicGetter {
     return "Schlock";
   }
 
-  public String[] getToFrom(String index) {
-    String[] tofrom = new String[2];
-    tofrom[0] = getSrc(index);
-    tofrom[1] = getDest(index);
-    return tofrom;
-  }
-
   public String getSrc(String index) {
     return "http://static.schlockmercenary.com/comics/schlock" + index + ".png";
   }

@@ -29,13 +29,6 @@ public class OOTSGetter extends ComicGetter {
     return "OOTS";
   }
 
-  public String[] getToFrom(String index) {
-    String[] tofrom = new String[2];
-    tofrom[0] = getSrc(index);
-    tofrom[1] = getDest(index);
-    return tofrom;
-  }
-
   public String getSrc(String index) {
 	try {
     Document doc = Jsoup.connect(String.format("http://www.giantitp.com/comics/%s.html", index)).get();

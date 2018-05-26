@@ -53,19 +53,12 @@ public class GirlGeniusGetter extends ComicGetter {
     return "GirlGenius";
   }
 
-  public String[] getToFrom(String index) {
-    String[] tofrom = new String[2];
-    tofrom[0] = getSrc(index);
-    tofrom[1] = getDest(index);
+  public String getSrc(String index) {
     /*String doublePage = getDoublePage(
       "http://www.girlgeniusonline.com/comic.php?date=" + index);
     if (doublePage != null) {
       tofrom[0] = doublePage;
     }*/
-    return tofrom;
-  }
-
-  public String getSrc(String index) {
     return title + index + ".jpg";
   }
 
