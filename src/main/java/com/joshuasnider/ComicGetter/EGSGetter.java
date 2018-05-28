@@ -1,5 +1,6 @@
 /**
- * El Goonish Shive is a ...
+ * El Goonish Shive is a webcomic about a group of
+ *  teenagers who routinely run into bizarre paranormal occurences.
  *
  * @author: Josh Snider
  */
