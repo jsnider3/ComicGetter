@@ -7,6 +7,7 @@ when I was disconnected from the internet.
 
 Currently it supports the following:
 * Captain SNES
+* Casey and Andy
 * El Goonish Shive
 * Girl Genius
 * Order of the Stick
