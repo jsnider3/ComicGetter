@@ -19,6 +19,8 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 import java.util.stream.StreamSupport;
 
 public abstract class ComicGetter implements Iterable<String> {
@@ -51,11 +53,13 @@ public abstract class ComicGetter implements Iterable<String> {
     for (String index : this) {
       System.out.println(getName() + ": " + index);
       try {
-        String dest = getDest(index);
-        if (dest != null && !isAlreadyDownloaded(dest)) {
+        String base = getDest(index);
+        String dest = getDir() + base;
+        if (dest != null && !isAlreadyDownloaded(base)) {
           String src = getSrc(index);
           if (src != null) {
-            saveImage(src, getDir() + dest);
+            dest = dest + "." + getFileExtension(src);
+            saveImage(src, dest);
           }
         }
       } catch (Exception ex) {ex.printStackTrace();}
@@ -109,6 +113,16 @@ public abstract class ComicGetter implements Iterable<String> {
   public final String getDir() {
     return "Webcomics" + File.separator + getName() + File.separator;
   }
+  
+  public final String getFileExtension(String filePath) {
+    File f = new File(filePath);
+    if (f.isDirectory()) return "";
+    String name = f.getName();
+    if ((name.startsWith(".") && name.lastIndexOf('.') == name.indexOf('.'))
+        || !name.contains("."))
+      return "";
+    return name.substring(name.lastIndexOf('.') + 1);
+  }
 
   /**
    * Get the name of the webcomic in string form.
@@ -121,7 +135,14 @@ public abstract class ComicGetter implements Iterable<String> {
   public abstract String getSrc(String index);
 
   public boolean isAlreadyDownloaded(String dest) {
-    return new File(getDir() + dest).exists();
+	Pattern pat = Pattern.compile(dest + ".*");
+	for (final File fileEntry : new File(getDir()).listFiles()) {
+	  Matcher match = pat.matcher(fileEntry.getName());
+	  if (match.matches()) {
+		return true;
+	  }
+    }
+    return false;
   }
 
   /**

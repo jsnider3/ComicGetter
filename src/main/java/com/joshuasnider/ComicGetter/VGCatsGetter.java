@@ -50,7 +50,7 @@ public class VGCatsGetter extends ComicGetter {
   }
 
   public String getDest(String index) {
-    return String.format("%03d", Integer.parseInt(index)) + ".png";
+    return String.format("%03d", Integer.parseInt(index));
   }
 
   public String getName() {

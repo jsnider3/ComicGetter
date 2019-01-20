@@ -50,7 +50,7 @@ public class SNESGetter extends ComicGetter {
   public String getDest(String index) {
     index = index.substring(index.indexOf(".com") + 5, index.length() - 1);
     index = index.replace('/', '-');
-    return index + ".png";
+    return index;
   }
 
   public String getName() {

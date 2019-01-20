@@ -34,7 +34,10 @@ public class XKCDGetter extends ComicGetter {
   public String getDest(String index) {
     String src = getSrc(index);
     if (src != null){
-      return String.format("%04d_%s", Integer.parseInt(index), src.substring(29));
+      src = src.substring(29);
+	  String exten = getFileExtension(src);
+	  src = src.substring(0, src.length() - exten.length());
+      return String.format("%04d_%s", Integer.parseInt(index), src);
     }
     else {
       return null;

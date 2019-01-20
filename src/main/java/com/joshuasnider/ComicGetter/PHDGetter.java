@@ -49,7 +49,7 @@ public class PHDGetter extends ComicGetter {
     String dest = null;
     try {
       index = new SimpleDateFormat("yyyyMMdd").format(new SimpleDateFormat("MM/dd/yyyy").parse(index));
-      dest = index + ".gif";
+      dest = index;
     } catch (ParseException ex) {
       ex.printStackTrace();
     }

@@ -27,7 +27,7 @@ public class PennyArcadeGetter extends ComicGetter {
   }
 
   public String getDest(String index) {
-    return index.replaceAll("/", "") + ".jpg";
+    return index.replaceAll("/", "");
   }
 
   public String getName() {

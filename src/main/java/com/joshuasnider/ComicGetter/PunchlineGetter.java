@@ -48,7 +48,7 @@ public class PunchlineGetter extends ComicGetter {
   }
 
   public String getDest(String index) {
-    return index + ".jpg";
+    return index;
   }
 
   public String getName() {

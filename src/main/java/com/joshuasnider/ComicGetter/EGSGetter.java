@@ -35,7 +35,7 @@ public class EGSGetter extends ComicGetter {
 
   public String getDest(String index) {
     int numsize = Integer.toString(newest).length();
-    return String.format("%0" + Integer.toString(numsize) + "d", Integer.parseInt(index)) + ".gif";
+    return String.format("%0" + Integer.toString(numsize) + "d", Integer.parseInt(index));
   }
 
   public String getName() {

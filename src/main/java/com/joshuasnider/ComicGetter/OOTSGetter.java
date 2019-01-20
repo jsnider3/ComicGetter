@@ -22,7 +22,7 @@ public class OOTSGetter extends ComicGetter {
 
   public String getDest(String index) {
     //TODO Consider switching to date.
-    return index + ".gif";
+    return index;
   }
 
   public String getName() {

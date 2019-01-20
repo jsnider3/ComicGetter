@@ -16,7 +16,7 @@ public class CaseyAndAndyGetter extends ComicGetter {
   }
 
   public String getDest(String index) {
-    return index + ".gif";
+    return index;
   }
 
   public String getName() {

@@ -34,17 +34,17 @@ public class SMBCGetter extends ComicGetter {
   public SMBCGetter() {
     archive = new ArrayList<String>();
     try {
-      Document doc = Jsoup.connect("https://smbc-comics.com/comic/archive").get();
+      Document doc = Jsoup.connect("https://www.smbc-comics.com/comic/archive").get();
       for (Element e : doc.select("option"))
       {
         String value = e.attr("value");
         archive.add(value);
       }
-		} catch (IOException ex) {ex.printStackTrace();}
+    } catch (IOException ex) {ex.printStackTrace();}
   }
 
   public String getDest(String index) {
-    return index + ".jpg";
+    return index;
   }
 
   public String getName() {

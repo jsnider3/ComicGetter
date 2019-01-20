@@ -21,7 +21,7 @@ public class SchlockGetter extends ComicGetter {
   }
 
   public String getDest(String index) {
-    return index + ".png";
+    return index;
   }
 
   @Override
