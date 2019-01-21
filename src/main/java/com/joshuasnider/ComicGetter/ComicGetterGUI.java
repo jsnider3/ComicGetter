@@ -1,8 +1,17 @@
+/**
+ * GUI Wrapper for the Comic Getter project.
+ *
+ * @author: Josh Snider
+ *
+ */
 package com.joshuasnider.comicgetter;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -12,7 +21,6 @@ public class ComicGetterGUI implements ActionListener {
   private List<ComicGetter> comics;
   private List<JCheckBox> check_boxes;
 
-  //TODO Comments
   public static void main(String[] args) {
     new ComicGetterGUI();
   }
@@ -23,7 +31,7 @@ public class ComicGetterGUI implements ActionListener {
 
     guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     guiFrame.setTitle("Comic Getter GUI");
-    guiFrame.setSize(500, 250);
+    guiFrame.setSize(500, 300);
 
     guiFrame.setLocationRelativeTo(null);
 
@@ -49,17 +57,42 @@ public class ComicGetterGUI implements ActionListener {
     JTextArea output = new JTextArea(3, 40);
     output.setEditable(false);
     panel3.add(output);
+    PrintStream printStream = new PrintStream(new TextAreaOutputStream(output));
+    System.setOut(printStream);
+    System.setErr(printStream);
     guiFrame.add(panel3, BorderLayout.SOUTH);
     guiFrame.setVisible(true);
   }
 
+  public class TextAreaOutputStream extends OutputStream {
+    private JTextArea textArea;
+
+    public TextAreaOutputStream(JTextArea textArea) {
+      this.textArea = textArea;
+    }
+
+    @Override
+    public void write(int b) throws IOException {
+      textArea.append(String.valueOf((char)b));
+      textArea.setCaretPosition(textArea.getDocument().getLength());
+    }
+  }
+
   public void actionPerformed(ActionEvent e) {
-    System.out.println("TODO Download the following:");
+    // TODO FIXME Download button is hidden after textbox is written to.
+    List<String> downloads = new ArrayList<>();
     for (int index = 0; index < check_boxes.size(); index++)
     {
       if (check_boxes.get(index).isSelected())
       {
-        System.out.println(check_boxes.get(index).getText());
+        downloads.add(check_boxes.get(index).getText());
+      }
+    }
+    System.out.println("Will download the following: " + String.join(", ", downloads) + ".");
+    for (int index = 0; index < check_boxes.size(); index++)
+    {
+      if (check_boxes.get(index).isSelected())
+      {
         comics.get(index).getAllSafe();
       }
     }
