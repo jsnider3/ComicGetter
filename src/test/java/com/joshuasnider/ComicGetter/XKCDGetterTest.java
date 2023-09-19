@@ -4,7 +4,7 @@
  * @Author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
 
@@ -34,7 +34,7 @@ public class XKCDGetterTest {
 
   @Test
   public void testSize() {
-    ComicGetter comic = new XKCDGetter();
+    BaseComicGetter comic = new XKCDGetter();
     List<String> contents = new ArrayList<>();
     comic.iterator().forEachRemaining(contents::add);
     assertTrue(contents.size() >= 1988);
@@ -42,7 +42,7 @@ public class XKCDGetterTest {
 
   @Test
   public void testConnection() {
-    ComicGetter comic = new XKCDGetter();
+    BaseComicGetter comic = new XKCDGetter();
     try {
       new URL(comic.getSrc("1")).openStream();
     } catch(Exception e) {

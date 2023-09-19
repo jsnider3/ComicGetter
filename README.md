@@ -24,8 +24,8 @@ Adding new webcomics can be done by implementing the interface specified in
 com.joshuasnider.comicgetter.ComicGetter.
 
 ## To Run
-mvn compile
-mvn exec:java -Dexec.mainClass="com.joshuasnider.comicgetter.ComicGetter"
+    mvn compile
+    mvn exec:java -Dexec.mainClass="com.joshuasnider.comicgetter.ComicGetter"
 
 ## Proposed Features
 Features I'm thinking of adding, but haven't yet.

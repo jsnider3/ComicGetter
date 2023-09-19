@@ -4,21 +4,19 @@
  * @author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
-import java.io.File;
 import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class PennyArcadeGetter extends ComicGetter {
+public class PennyArcadeGetter extends BaseComicGetter {
 
   public static String home = "https://www.penny-arcade.com/comic/";
 

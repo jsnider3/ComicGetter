@@ -4,11 +4,10 @@
  * @Author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,7 @@ public class FoxhoundGetterTest {
 
   @Test
   public void testSize() {
-    ComicGetter comic = new FoxhoundGetter();
+    BaseComicGetter comic = new FoxhoundGetter();
     List<String> contents = new ArrayList<>();
     comic.iterator().forEachRemaining(contents::add);
     assertTrue(contents.size() >= 500);
@@ -44,7 +43,7 @@ public class FoxhoundGetterTest {
 
   @Test
   public void testConnection() {
-    ComicGetter comic = new FoxhoundGetter();
+    BaseComicGetter comic = new FoxhoundGetter();
     try {
       new URL(comic.getSrc("001")).openStream();
     } catch(Exception e) {

@@ -4,7 +4,7 @@
  * @author: Josh Snider
  *
  */
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -18,7 +18,7 @@ import javax.swing.*;
 
 public class ComicGetterGUI implements ActionListener {
 
-  private List<ComicGetter> comics;
+  private List<BaseComicGetter> comics;
   private List<JCheckBox> check_boxes;
 
   public static void main(String[] args) {
@@ -37,8 +37,8 @@ public class ComicGetterGUI implements ActionListener {
 
     final JPanel comboPanel = new JPanel();
     check_boxes = new ArrayList<>();
-    comics = ComicGetter.getComicGetters();
-    for (ComicGetter gtr : comics) {
+    comics = BaseComicGetter.getComicGetters();
+    for (BaseComicGetter gtr : comics) {
       JCheckBox cb = new JCheckBox(gtr.getName());
       check_boxes.add(cb);
       comboPanel.add(cb);

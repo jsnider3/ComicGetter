@@ -5,16 +5,15 @@
  * @author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
-import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class SchlockGetter extends ComicGetter {
+public class SchlockGetter extends BaseComicGetter {
 
   public static void main(String[] args) {
     new SchlockGetter().getAll();

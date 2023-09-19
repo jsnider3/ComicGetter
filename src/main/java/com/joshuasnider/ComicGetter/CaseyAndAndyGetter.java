@@ -5,11 +5,11 @@
  * @author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import java.util.Iterator;
 
-public class CaseyAndAndyGetter extends ComicGetter {
+public class CaseyAndAndyGetter extends BaseComicGetter {
 
   public static void main(String[] args) {
     new CaseyAndAndyGetter().getAll();

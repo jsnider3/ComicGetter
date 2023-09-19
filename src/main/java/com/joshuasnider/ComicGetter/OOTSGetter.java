@@ -6,7 +6,7 @@
  * @author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -14,7 +14,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-public class OOTSGetter extends ComicGetter {
+public class OOTSGetter extends BaseComicGetter {
 
   public static void main(String[] args) {
     new OOTSGetter().getAll();

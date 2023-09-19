@@ -4,18 +4,13 @@
  * @author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.Iterator;
 import org.jsoup.Jsoup;
 
-public class XKCDGetter extends ComicGetter {
+public class XKCDGetter extends BaseComicGetter {
 
   public static void main(String[] args) {
     new XKCDGetter().getAll();

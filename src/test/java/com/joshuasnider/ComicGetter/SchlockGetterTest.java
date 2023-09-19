@@ -4,7 +4,7 @@
  * @Author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
 
@@ -37,7 +37,7 @@ public class SchlockGetterTest {
 
   @Test
   public void testSize() {
-    ComicGetter comic = new SchlockGetter();
+    BaseComicGetter comic = new SchlockGetter();
     List<String> contents = new ArrayList<>();
     comic.iterator().forEachRemaining(contents::add);
     assertTrue(contents.size() >= 365 * 17);
@@ -45,7 +45,7 @@ public class SchlockGetterTest {
 
   @Test
   public void testConnection() {
-    ComicGetter comic = new SchlockGetter();
+    BaseComicGetter comic = new SchlockGetter();
     try {
       new URL(comic.getSrc("20000612")).openStream();
     } catch(Exception e) {

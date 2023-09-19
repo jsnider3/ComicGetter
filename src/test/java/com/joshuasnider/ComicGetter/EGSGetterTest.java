@@ -4,7 +4,7 @@
  * @Author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +17,7 @@ public class EGSGetterTest {
 
   @Test
   public void testLayout() {
-    ComicGetter comic = new EGSGetter();
+    BaseComicGetter comic = new EGSGetter();
     assertNotNull(comic.getSrc("1"));
   }
 

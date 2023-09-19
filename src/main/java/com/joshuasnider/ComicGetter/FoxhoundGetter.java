@@ -6,11 +6,11 @@
  * @author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import java.util.Iterator;
 
-public class FoxhoundGetter extends ComicGetter {
+public class FoxhoundGetter extends BaseComicGetter {
 
   public static void main(String[] args) {
     new FoxhoundGetter().getAll();

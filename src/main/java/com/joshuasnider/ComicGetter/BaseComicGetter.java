@@ -7,7 +7,7 @@
  * @Author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
 import com.google.common.reflect.ClassPath;
 import java.io.File;
@@ -17,13 +17,11 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import java.util.stream.StreamSupport;
 
-public abstract class ComicGetter implements Iterable<String> {
+public abstract class BaseComicGetter implements Iterable<String> {
 
   /**
    * Downloads every webcomic defined for this interface.
@@ -62,37 +60,38 @@ public abstract class ComicGetter implements Iterable<String> {
             saveImage(src, dest);
           }
         }
-      } catch (Exception ex) {ex.printStackTrace();}
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
     }
-
   }
 
   /**
    * Use reflection to get the list of comic getters available.
    */
-  public static List<ComicGetter> getComicGetters() {
-    List<ComicGetter> comics = new ArrayList<ComicGetter>();
-    String pkg_name = "com.joshuasnider.comicgetter";
+  public static List<BaseComicGetter> getComicGetters() {
+    List<BaseComicGetter> comics = new ArrayList<BaseComicGetter>();
+    String pkg_name = "com.joshuasnider.ComicGetter";
     try {
-      Class cls = Class.forName(pkg_name + ".ComicGetter");
+      Class cls = Class.forName(pkg_name + ".BaseComicGetter");
       // returns the ClassLoader object associated with this Class.
       ClassLoader cLoader = cls.getClassLoader();
       ClassPath class_path = ClassPath.from(cLoader);
-      System.out.println("ComicGetter.getComicGetters");
+      System.out.println("BaseComicGetter.getComicGetters");
       for (ClassPath.ClassInfo clas : class_path.getTopLevelClasses(pkg_name)) {
         System.out.println("Class: " + clas.getSimpleName());
         Class loaded = clas.load();
         if (loaded != cls && cls.isAssignableFrom(loaded))
         {
           try {
-            ComicGetter gtr = (ComicGetter)loaded.newInstance();
+            BaseComicGetter gtr = (BaseComicGetter)loaded.newInstance();
             comics.add(gtr);
           } catch (ClassCastException e) {
             System.err.println(String.format(
-              "ERROR: Non-ComicGetter class in %s.ComicGetter: %s", pkg_name, clas.getSimpleName()));
+              "ERROR: Non-BaseComicGetter class in %s.BaseComicGetter: %s", pkg_name, clas.getSimpleName()));
           } catch (InstantiationException e) {
             System.err.println(String.format(
-              "ERROR: Could not instantiate class in %s.ComicGetter: %s", pkg_name, clas.getSimpleName()));
+              "ERROR: Could not instantiate class in %s.BaseComicGetter: %s", pkg_name, clas.getSimpleName()));
           }
         }
       }
@@ -135,12 +134,12 @@ public abstract class ComicGetter implements Iterable<String> {
   public abstract String getSrc(String index);
 
   public boolean isAlreadyDownloaded(String dest) {
-	Pattern pat = Pattern.compile(dest + ".*");
-	for (final File fileEntry : new File(getDir()).listFiles()) {
-	  Matcher match = pat.matcher(fileEntry.getName());
-	  if (match.matches()) {
-		return true;
-	  }
+	  Pattern pat = Pattern.compile(dest + ".*");
+	  for (final File fileEntry : new File(getDir()).listFiles()) {
+	    Matcher match = pat.matcher(fileEntry.getName());
+	    if (match.matches()) {
+		    return true;
+	    }
     }
     return false;
   }

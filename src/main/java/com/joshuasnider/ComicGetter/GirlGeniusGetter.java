@@ -4,9 +4,8 @@
  * @author: Josh Snider
  */
 
-package com.joshuasnider.comicgetter;
+package com.joshuasnider.ComicGetter;
 
-import java.io.File;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -16,7 +15,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class GirlGeniusGetter extends ComicGetter {
+public class GirlGeniusGetter extends BaseComicGetter {
 
   public static String home = "http://www.girlgeniusonline.com";
   public static String title = home + "/ggmain/strips/ggmain";
