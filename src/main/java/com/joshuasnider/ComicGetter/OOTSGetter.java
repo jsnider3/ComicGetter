@@ -1,11 +1,9 @@
 /**
- * The Order of the Stick is a comedy webcomic by
- *  Rich Burlew set in a world that follows the rules of
- *  a pen-and-pencil rpg.
+ * The Order of the Stick is a comedy webcomic by Rich Burlew set in a world that follows the rules
+ * of a pen-and-pencil rpg.
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
 import java.io.IOException;
@@ -29,14 +27,18 @@ public class OOTSGetter extends BaseComicGetter {
   }
 
   public String getSrc(String index) {
-	try {
-    Document doc = Jsoup.connect(String.format("http://www.giantitp.com/comics/%s.html", index)).get();
-    for (Element e : doc.select("img")) {
-      if (e.attr("src").contains("comics")) {
-        return String.format("http://www.giantitp.com%s", e.attr("src"));
+    try {
+      Document doc =
+          Jsoup.connect(String.format("http://www.giantitp.com/comics/%s.html", index)).get();
+      for (Element e : doc.select("img")) {
+        String attrSrc = e.attr("src");
+        if (attrSrc.contains("comics") && attrSrc.contains(index)) {
+          return attrSrc;
+        }
       }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-  } catch (IOException e) {e.printStackTrace();}
     return null;
   }
 
@@ -52,7 +54,7 @@ public class OOTSGetter extends BaseComicGetter {
         newest = Integer.parseInt(comiclink.split(" ")[0]);
       } catch (IOException e) {
         e.printStackTrace();
-        newest = 1120;
+        newest = 1288;
       }
     }
 
@@ -67,11 +69,9 @@ public class OOTSGetter extends BaseComicGetter {
       index = index + 1;
       return ret;
     }
-
   }
 
   public Iterator<String> iterator() {
     return new ComicIterator();
   }
-
 }

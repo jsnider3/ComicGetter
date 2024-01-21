@@ -1,17 +1,15 @@
 /**
- * Schlock Mercenary is a daily webcomic about a band of mercenaries
- *  with a spaceship.
+ * Schlock Mercenary is a daily webcomic about a band of mercenaries with a spaceship.
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Collections;
+import java.time.LocalDate;
 import java.util.Iterator;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 public class SchlockGetter extends BaseComicGetter {
 
@@ -29,43 +27,59 @@ public class SchlockGetter extends BaseComicGetter {
   }
 
   public String getSrc(String index) {
-    return "http://static.schlockmercenary.com/comics/schlock" + index + ".png";
+    String src = null;
+    try {
+      String url = "https://www.schlockmercenary.com/" + index;
+      Document doc = Jsoup.connect(url).get();
+
+      Element stripImageWrapper = doc.selectFirst("div.strip-image-wrapper");
+      if (stripImageWrapper != null) {
+        if (stripImageWrapper != null) {
+          Element img = stripImageWrapper.selectFirst("img");
+          // TODO Handle pages with multiple images.
+          if (img != null) {
+            src = img.absUrl("src"); // Use absUrl to get the full URL
+            int iend = src.indexOf("?");
+            if (iend != -1) {
+              src = src.substring(0, iend);
+            }
+          } else {
+            System.out.println("img not found within the div");
+          }
+        }
+      } else {
+        System.out.println("div.strip-image-wrapper not found");
+      }
+    } catch (Exception e) {
+      System.err.println("Error fetching webpage: " + e.getMessage());
+    }
+    return src;
   }
 
   private class ComicIterator implements Iterator<String> {
 
-    private Calendar index = null;
+    private LocalDate current;
+    private final LocalDate end;
 
-    public ComicIterator() throws ParseException {
-      index = Calendar.getInstance();
-      index.setTime(new SimpleDateFormat("yyyyMMdd").parse("20000612"));
+    public ComicIterator() {
+      this.current = LocalDate.of(2000, 6, 12);
+      this.end = LocalDate.of(2020, 9, 29);
     }
 
     @Override
     public boolean hasNext() {
-      return index.compareTo(Calendar.getInstance()) <= 0;
+      return !current.isAfter(end);
     }
 
-    /**
-     * This code generates FileNotFoundExceptions on Sundays with multiple images.
-     */
     @Override
     public String next() {
-      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-      String ret = dateFormat.format(index.getTime());
-      index.add(Calendar.DATE, 1);
-      return ret;
+      String dateStr = current.toString();
+      current = current.plusDays(1);
+      return dateStr;
     }
-
   }
 
   public Iterator<String> iterator() {
-    try {
-      return new ComicIterator();
-    } catch (ParseException e) {
-      e.printStackTrace();
-      return Collections.emptyIterator();
-    }
+    return new ComicIterator();
   }
-
 }

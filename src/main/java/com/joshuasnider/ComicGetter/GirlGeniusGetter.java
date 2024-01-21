@@ -3,17 +3,16 @@
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Iterator;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 public class GirlGeniusGetter extends BaseComicGetter {
 
@@ -29,9 +28,8 @@ public class GirlGeniusGetter extends BaseComicGetter {
   }
 
   /**
-   * Try to find the link to the double page if the given comic is one.
-   * If it isn't or we can't find it, return null.
-   * FIXME: This is a performance issue.
+   * Try to find the link to the double page if the given comic is one. If it isn't or we can't find
+   * it, return null. FIXME: This is a performance issue.
    */
   public String getDoublePage(String url) {
     String link = null;
@@ -97,7 +95,6 @@ public class GirlGeniusGetter extends BaseComicGetter {
       }
       return ret;
     }
-
   }
 
   @Override
@@ -109,5 +106,4 @@ public class GirlGeniusGetter extends BaseComicGetter {
       return Collections.emptyIterator();
     }
   }
-
 }

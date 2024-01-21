@@ -3,9 +3,9 @@
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
+import com.google.common.io.Files;
 import java.io.IOException;
 import java.util.Iterator;
 import org.jsoup.Jsoup;
@@ -22,19 +22,19 @@ public class XKCDGetter extends BaseComicGetter {
     int recent = -1;
     try {
       recent = getNewestComic();
-    } catch (IOException e) { }
+    } catch (IOException e) {
+    }
     newest = recent;
   }
 
   public String getDest(String index) {
     String src = getSrc(index);
-    if (src != null){
+    if (src != null) {
       src = src.substring(29);
-	  String exten = getFileExtension(src);
-	  src = src.substring(0, src.length() - exten.length());
+      String exten = Files.getFileExtension(src);
+      src = src.substring(0, src.length() - exten.length());
       return String.format("%04d_%s", Integer.parseInt(index), src);
-    }
-    else {
+    } else {
       return null;
     }
   }
@@ -43,9 +43,7 @@ public class XKCDGetter extends BaseComicGetter {
     return "XKCD";
   }
 
-  /**
-   * Get the index of the newest xkcd comic.
-   */
+  /** Get the index of the newest xkcd comic. */
   public int getNewestComic() throws IOException {
     String html = Jsoup.connect("http://www.xkcd.com").get().html();
     int num = html.indexOf("Permanent link to this comic");
@@ -55,9 +53,7 @@ public class XKCDGetter extends BaseComicGetter {
     return comicnumber;
   }
 
-  /**
-   * Get the image URL for the given comic number.
-   */
+  /** Get the image URL for the given comic number. */
   public String getSrc(String index) {
     String fileLoc = null;
     try {
@@ -66,7 +62,8 @@ public class XKCDGetter extends BaseComicGetter {
       int end = input.indexOf('<', start);
       fileLoc = input.substring(start, end);
       fileLoc = fileLoc.trim();
-    } catch (IOException e) {}
+    } catch (IOException e) {
+    }
     return fileLoc;
   }
 
@@ -88,11 +85,9 @@ public class XKCDGetter extends BaseComicGetter {
       }
       return ret;
     }
-
   }
 
   public Iterator<String> iterator() {
     return new ComicIterator();
   }
-
 }

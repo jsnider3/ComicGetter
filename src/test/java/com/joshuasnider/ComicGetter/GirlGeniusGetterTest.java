@@ -1,9 +1,4 @@
-/**
- * Test class for GirlGeniusGetter.java.
- *
- * @Author: Josh Snider
- */
-
+/** Test class for GirlGeniusGetter.java. @Author: Josh Snider */
 package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
@@ -47,9 +42,8 @@ public class GirlGeniusGetterTest {
     BaseComicGetter comic = new GirlGeniusGetter();
     try {
       new URL(comic.getSrc("20021106")).openStream();
-    } catch(Exception e) {
+    } catch (Exception e) {
       fail("Could not connect to " + comic.getSrc("20021106") + ".");
     }
   }
-
 }

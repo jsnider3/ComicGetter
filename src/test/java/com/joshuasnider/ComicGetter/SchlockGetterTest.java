@@ -1,9 +1,4 @@
-/**
- * Test class for SchlockGetter.java.
- *
- * @Author: Josh Snider
- */
-
+/** Test class for SchlockGetter.java. @Author: Josh Snider */
 package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
@@ -11,8 +6,8 @@ import static org.junit.Assert.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Calendar;
+import java.util.List;
 import org.junit.Test;
 
 public class SchlockGetterTest {
@@ -32,7 +27,9 @@ public class SchlockGetterTest {
     assertEquals("20000613", contents.get(contents.indexOf("20000612") + 1));
     assertTrue(contents.contains("20120815"));
     assertEquals("20120816", contents.get(contents.indexOf("20120815") + 1));
-    assertEquals(new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime()), contents.get(contents.size() - 1));
+    assertEquals(
+        new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime()),
+        contents.get(contents.size() - 1));
   }
 
   @Test
@@ -48,9 +45,8 @@ public class SchlockGetterTest {
     BaseComicGetter comic = new SchlockGetter();
     try {
       new URL(comic.getSrc("20000612")).openStream();
-    } catch(Exception e) {
+    } catch (Exception e) {
       fail("Could not connect to " + comic.getSrc("20000612") + ".");
     }
   }
-
 }

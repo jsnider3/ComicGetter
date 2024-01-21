@@ -2,13 +2,12 @@
  * GUI Wrapper for the Comic Getter project.
  *
  * @author: Josh Snider
- *
  */
 package com.joshuasnider.ComicGetter;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -25,8 +24,7 @@ public class ComicGetterGUI implements ActionListener {
     new ComicGetterGUI();
   }
 
-  public ComicGetterGUI()
-  {
+  public ComicGetterGUI() {
     JFrame guiFrame = new JFrame();
 
     guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +41,7 @@ public class ComicGetterGUI implements ActionListener {
       check_boxes.add(cb);
       comboPanel.add(cb);
     }
-    comboPanel.setLayout(new GridLayout(comics.size()/3 + 1, 3));
+    comboPanel.setLayout(new GridLayout(comics.size() / 3 + 1, 3));
     guiFrame.add(comboPanel, BorderLayout.NORTH);
 
     JPanel panel2 = new JPanel();
@@ -73,7 +71,7 @@ public class ComicGetterGUI implements ActionListener {
 
     @Override
     public void write(int b) throws IOException {
-      textArea.append(String.valueOf((char)b));
+      textArea.append(String.valueOf((char) b));
       textArea.setCaretPosition(textArea.getDocument().getLength());
     }
   }
@@ -81,18 +79,14 @@ public class ComicGetterGUI implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     // TODO FIXME Download button is hidden after textbox is written to.
     List<String> downloads = new ArrayList<>();
-    for (int index = 0; index < check_boxes.size(); index++)
-    {
-      if (check_boxes.get(index).isSelected())
-      {
+    for (int index = 0; index < check_boxes.size(); index++) {
+      if (check_boxes.get(index).isSelected()) {
         downloads.add(check_boxes.get(index).getText());
       }
     }
     System.out.println("Will download the following: " + String.join(", ", downloads) + ".");
-    for (int index = 0; index < check_boxes.size(); index++)
-    {
-      if (check_boxes.get(index).isSelected())
-      {
+    for (int index = 0; index < check_boxes.size(); index++) {
+      if (check_boxes.get(index).isSelected()) {
         comics.get(index).getAllSafe();
       }
     }

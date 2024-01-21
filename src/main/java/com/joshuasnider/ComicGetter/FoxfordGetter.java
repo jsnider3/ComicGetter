@@ -1,6 +1,5 @@
 /**
- * Casey and Andy is a webcomic by Andy Weir about a pair of mad scientists who go on wacky
- * adventures.
+ * Foxford is a thought-criminal webcomic.
  *
  * @author: Josh Snider
  */
@@ -8,10 +7,10 @@ package com.joshuasnider.ComicGetter;
 
 import java.util.Iterator;
 
-public class CaseyAndAndyGetter extends BaseComicGetter {
+public class FoxfordGetter extends BaseComicGetter {
 
   public static void main(String[] args) {
-    new CaseyAndAndyGetter().getAll();
+    new FoxfordGetter().getAll();
   }
 
   public String getDest(String index) {
@@ -19,27 +18,28 @@ public class CaseyAndAndyGetter extends BaseComicGetter {
   }
 
   public String getName() {
-    return "CaseyAndAndy";
+    return "Foxford";
   }
 
   public String getSrc(String index) {
-    return String.format("http://www.galactanet.com/comic/Strip%d.gif", Integer.parseInt(index));
+    return "TODO";
   }
 
   private class ComicIterator implements Iterator<String> {
 
-    private int index = 1;
+    public ComicIterator() {
+      // TODO
+    }
 
     @Override
     public boolean hasNext() {
-      return index <= 666;
+      // TODO
+      return false;
     }
 
     @Override
     public String next() {
-      String ret = Integer.toString(index);
-      index = index + 1;
-      return ret;
+      return "TODO";
     }
   }
 

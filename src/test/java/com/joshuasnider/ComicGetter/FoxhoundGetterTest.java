@@ -1,9 +1,4 @@
-/**
- * Test class for FoxhoundGetter.java.
- *
- * @Author: Josh Snider
- */
-
+/** Test class for FoxhoundGetter.java. @Author: Josh Snider */
 package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
@@ -46,9 +41,8 @@ public class FoxhoundGetterTest {
     BaseComicGetter comic = new FoxhoundGetter();
     try {
       new URL(comic.getSrc("001")).openStream();
-    } catch(Exception e) {
+    } catch (Exception e) {
       fail("Could not connect to " + comic.getSrc("001") + ".");
     }
   }
-
 }

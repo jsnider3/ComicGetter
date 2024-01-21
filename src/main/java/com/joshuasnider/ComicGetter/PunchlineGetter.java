@@ -3,7 +3,6 @@
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
 import java.io.IOException;
@@ -18,27 +17,30 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 public class PunchlineGetter extends BaseComicGetter {
-	private SortedMap<String, String> archive;
+  private SortedMap<String, String> archive;
 
   public static void main(String[] args) {
     new PunchlineGetter().getAll();
   }
-  
+
   public PunchlineGetter() {
     archive = new TreeMap<String, String>();
     try {
       Document doc = Jsoup.connect("http://thepunchlineismachismo.com/archive").get();
-      for (Element e : doc.getElementsByClass("comic-list"))
-      {
+      for (Element e : doc.getElementsByClass("comic-list")) {
         String date = e.getElementsByClass("comic-archive-date").get(0).html();
         try {
           Date d = new SimpleDateFormat("MMM dd, yyyy").parse(date);
           date = new SimpleDateFormat("yyyyMMdd").format(d);
           String link = e.select("a").get(0).attr("href");
           archive.put(date, link);
-        } catch (ParseException ex) {ex.printStackTrace();}
+        } catch (ParseException ex) {
+          ex.printStackTrace();
+        }
       }
-		} catch (IOException ex) {ex.printStackTrace();}
+    } catch (IOException ex) {
+      ex.printStackTrace();
+    }
   }
 
   public String getDest(String index) {
@@ -49,9 +51,7 @@ public class PunchlineGetter extends BaseComicGetter {
     return "Punchline";
   }
 
-  /**
-   * Get the image URL for the given comic number.
-   */
+  /** Get the image URL for the given comic number. */
   public String getSrc(String index) {
     String src = null;
     try {
@@ -59,12 +59,13 @@ public class PunchlineGetter extends BaseComicGetter {
       Document doc = Jsoup.connect(page).get();
       Element comic_table = doc.getElementsByClass("comic-table").get(0);
       src = comic_table.select("img").get(0).attr("src");
-    } catch (Exception ex) {ex.printStackTrace();}
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
     return src;
   }
 
   public Iterator<String> iterator() {
     return archive.keySet().iterator();
   }
-
 }

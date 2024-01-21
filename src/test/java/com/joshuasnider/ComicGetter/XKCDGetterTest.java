@@ -1,9 +1,4 @@
-/**
- * Test class for XKCDGetter.java.
- *
- * @Author: Josh Snider
- */
-
+/** Test class for XKCDGetter.java. @Author: Josh Snider */
 package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
@@ -45,10 +40,9 @@ public class XKCDGetterTest {
     BaseComicGetter comic = new XKCDGetter();
     try {
       new URL(comic.getSrc("1")).openStream();
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
       fail("Could not connect to " + comic.getSrc("1") + ".");
     }
   }
-
 }

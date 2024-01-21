@@ -3,18 +3,17 @@
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
 import java.io.IOException;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Iterator;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 public class PennyArcadeGetter extends BaseComicGetter {
 
@@ -33,19 +32,19 @@ public class PennyArcadeGetter extends BaseComicGetter {
   }
 
   public String getSrc(String index) {
-	System.out.println(home + index);
-	String fileLoc = null;
+    // TODO FIXME Only getting one panel at a time.
+    String fileLoc = null;
     try {
       Document doc = Jsoup.connect(home + index).get();
-	  for (Element e : doc.select("div#comicFrame")) {
-		for (Element e2: e.select("img"))
-          if (e2.hasAttr("src"))
-            fileLoc = e2.attr("src");
+      for (Element e : doc.select("div.comic-panel")) {
+        for (Element e2 : e.select("img")) {
+          if (e2.hasAttr("src")) fileLoc = e2.attr("src");
+        }
       }
-	}
-	catch (IOException e) {
-	  e.printStackTrace();
-	}
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
+    }
+    System.out.println(home + " " + index + " " + fileLoc);
     return fileLoc;
   }
 
@@ -66,8 +65,8 @@ public class PennyArcadeGetter extends BaseComicGetter {
     }
 
     @Override
-	// TODO FIXME Inefficient and not guaranteed reliable.
     public String next() {
+      // TODO FIXME Inefficient and not guaranteed reliable.
       String ret;
       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
       ret = dateFormat.format(index.getTime());
@@ -86,7 +85,6 @@ public class PennyArcadeGetter extends BaseComicGetter {
       }
       return ret;
     }
-
   }
 
   @Override
@@ -98,5 +96,4 @@ public class PennyArcadeGetter extends BaseComicGetter {
       return Collections.emptyIterator();
     }
   }
-
 }

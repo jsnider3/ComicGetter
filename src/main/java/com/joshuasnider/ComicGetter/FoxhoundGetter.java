@@ -1,11 +1,9 @@
 /**
- * The Last Days of Foxhound is a webcomic exploring
- *  what Liquid Snake and Foxhound must have been doing before
- *  the plot of Metal Gear Solid.
+ * The Last Days of Foxhound is a webcomic exploring what Liquid Snake and Foxhound must have been
+ * doing before the plot of Metal Gear Solid.
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
 import java.util.Iterator;
@@ -28,12 +26,9 @@ public class FoxhoundGetter extends BaseComicGetter {
     return "http://www.doctorshrugs.com/foxhound/images/" + getImageName(index);
   }
 
-  /**
-   * Get the comic's base filename. (Wording?)
-   * @TODO: Broken for #200 and guest comics.
-   */
+  /** Get the comic's base filename. (Wording?) @TODO: Broken for #200 and guest comics. */
   public static String getImageName(String index) {
-    return  "foxhound_" + index + ".png";
+    return "foxhound_" + index + ".png";
   }
 
   private class ComicIterator implements Iterator<String> {
@@ -51,11 +46,9 @@ public class FoxhoundGetter extends BaseComicGetter {
       index = index + 1;
       return ret;
     }
-
   }
 
   public Iterator<String> iterator() {
     return new ComicIterator();
   }
-
 }

@@ -1,16 +1,8 @@
-/**
- * Test class for EGSGetter.java.
- *
- * @Author: Josh Snider
- */
-
+/** Test class for EGSGetter.java. @Author: Josh Snider */
 package com.joshuasnider.ComicGetter;
 
 import static org.junit.Assert.*;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Test;
 
 public class EGSGetterTest {
@@ -20,5 +12,4 @@ public class EGSGetterTest {
     BaseComicGetter comic = new EGSGetter();
     assertNotNull(comic.getSrc("1"));
   }
-
 }

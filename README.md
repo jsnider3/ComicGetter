@@ -21,16 +21,15 @@ Currently it supports the following:
 * VG Cats
 
 Adding new webcomics can be done by implementing the interface specified in
-com.joshuasnider.comicgetter.ComicGetter.
+com.joshuasnider.ComicGetter.BaseComicGetter.
 
 ## To Run
-    mvn compile
-    mvn exec:java -Dexec.mainClass="com.joshuasnider.comicgetter.ComicGetter"
+    mvn compile exec:java
 
 ## Proposed Features
 Features I'm thinking of adding, but haven't yet.
-* Add title text to images.
-* Automatically detect file ending.
+* Add title text to images. (Likely to be difficult.)
+* Automatically detect file ending. Perhaps with Tika.detect?
 * GUI that lets you select which webcomics to download.
 
 ## Proposed Webcomics

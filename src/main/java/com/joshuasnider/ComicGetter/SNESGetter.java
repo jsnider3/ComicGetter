@@ -1,41 +1,41 @@
 /**
- * Captain SNES is a video game themed webcomic, based off
- *  the premise of being a sequel to the cartoon Captain N.
+ * Captain SNES is a video game themed webcomic, based off the premise of being a sequel to the
+ * cartoon Captain N.
  *
  * @author: Josh Snider
  */
-
 package com.joshuasnider.ComicGetter;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 public class SNESGetter extends BaseComicGetter {
-	private List<String> archive;
+  private List<String> archive;
 
   public static void main(String[] args) {
     new SNESGetter().getAll();
   }
-  
+
   public SNESGetter() {
     archive = new ArrayList<String>();
     try {
       Document doc = Jsoup.connect("http://www.captainsnes.com/archives/").get();
-      for (Element e : doc.select("a"))
-      {
+      for (Element e : doc.select("a")) {
         if (e.hasAttr("rel")) {
           String value = e.attr("href");
           archive.add(value);
         }
       }
       Collections.sort(archive);
-		} catch (IOException ex) {ex.printStackTrace();}
+    } catch (IOException ex) {
+      ex.printStackTrace();
+    }
   }
 
   public String getDest(String index) {
@@ -48,9 +48,7 @@ public class SNESGetter extends BaseComicGetter {
     return "CaptainSNES";
   }
 
-  /**
-   * Get the image URL for the given comic.
-   */
+  /** Get the image URL for the given comic. */
   public String getSrc(String index) {
     String src = null;
     try {
@@ -58,12 +56,13 @@ public class SNESGetter extends BaseComicGetter {
       Document doc = Jsoup.connect(page).get();
       Element comic_body = doc.select("div#comic").get(0);
       src = comic_body.select("img").get(1).attr("src");
-    } catch (Exception ex) {ex.printStackTrace();}
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
     return src;
   }
 
   public Iterator<String> iterator() {
     return archive.iterator();
   }
-
 }
