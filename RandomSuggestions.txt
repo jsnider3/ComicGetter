@@ -4,8 +4,8 @@
 Humor:
 
 
-XKCD: A classic known for its wit, stick figures, and exploration of science, math, and romance (https://xkcd.com/about/)
-The Perry Bible Fellowship: Often dark and absurd humor in a well-drawn style (https://pbfcomics.com/comics/)
+XKCD: A classic known for its wit, stick figures, and exploration of science, math, and romance (https://xkcd.com/about/) DONE
+The Perry Bible Fellowship: Often dark and absurd humor in a well-drawn style (https://pbfcomics.com/comics/) DONE
 Sarah's Scribbles: Relatable comics about adulthood, mental health, and social awkwardness (https://www.gocomics.com/sarahs-scribbles)
 The Oatmeal: Hilarious and informative comics covering random topics, often with absurd twists (https://theoatmeal.com/c2index/page:2)
 
@@ -14,7 +14,7 @@ Story-driven:
 
 Lore Olympus: A modern retelling of Greek mythology, beautifully illustrated and engaging (https://www.webtoons.com/en/romance/lore-olympus/list?title_no=1320)
 Homestuck: A cult favorite with complex storylines, meta elements, and a massive scope (https://www.homestuck.com/)
-Gunnerkrigg Court: A long-running sci-fi/fantasy adventure with intricate worldbuilding (https://www.gunnerkrigg.com/?p=1)
+Gunnerkrigg Court: A long-running sci-fi/fantasy adventure with intricate worldbuilding (https://www.gunnerkrigg.com/?p=1) DONE
 Ava's Demon: Visually stunning with a compelling story about a young woman's pact with a demon (https://www.webtoons.com/en/canvas/avas-demon-/list?title_no=349705)
 
 Slice-of-life:
@@ -46,3 +46,9 @@ Sarah's Scribbles: Adulthood is relatable (and hilarious) through Sarah Andersen
 Lore Olympus: A beautiful and captivating modern retelling of the Greek myth of Persephone and Hades, brought to life in Rachel Smythe's stunning art and storytelling. https://www.webtoons.com/en/
 
 I hope this non-personal list is helpful to you!
+
+
+#####
+
+RoxyComics (Webtoon)
+Shortpacked.com
